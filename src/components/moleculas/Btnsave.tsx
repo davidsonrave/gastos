@@ -1,26 +1,24 @@
 import { Icono } from "../../index";
-import { IconType } from "react-icons";
 
-interface BtnSaveProps {
-  funcion?: () => void; // Hacer que la función sea opcional
-  titulo: string; // Texto del botón
-  bgcolor: string; // Color de fondo del botón
-  icono: IconType; // Componente de ícono
-}
+type BtnSaveProps = {
+  funcion: () => void;
+  titulo: string;
+  bgcolor: string;
+  icono: React.ReactNode;
+};
 
-export function BtnSave({ funcion, titulo, bgcolor, icono }: BtnSaveProps) {
+export function Btnsave({ funcion, titulo, bgcolor, icono }: BtnSaveProps) {
   return (
     <button
-      type="button"
-      className="flex justify-center items-center gap-2 bg-transparent border-none"
-      onClick={funcion}
+      type="submit"
+      className="flex justify-center items-center gap-2 border-none text-decoration-none"
+      style={{ backgroundColor: "initial" }}
     >
-      <Icono IconComponent={icono} /> {/* Pasar el componente del ícono */}
+      <Icono>{icono}</Icono>
       <span
-        className="px-4 py-2 font-bold text-lg border-4 border-black rounded-lg shadow-[4px_4px_0px_0px] text-black cursor-pointer duration-200 hover:scale-105"
-        style={{
-          backgroundColor: bgcolor,
-        }}
+        onClick={funcion}
+        className={`bg-[${bgcolor}] py-2 px-5 font-extrabold text-xl border-2 border-black rounded-lg shadow-sm transition-all duration-200 ease-in-out text-black cursor-pointer 
+          hover:translate-x-1 hover:translate-y-1 hover:shadow-md active:translate-x-0.5 active:translate-y-0.5 active:shadow-sm`}
       >
         {titulo}
       </span>

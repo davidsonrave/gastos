@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { supabase } from "../index";
 
 interface AuthContextType {
-  user: unknown | null; // Cambia 'any' a un tipo más específico si tienes la estructura del usuario
+  user: unknown | null; 
   login: (username: string) => void;
   logout: () => void;
 }

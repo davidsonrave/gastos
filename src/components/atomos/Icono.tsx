@@ -1,19 +1,10 @@
-import { IconType } from "react-icons";
+import { ReactNode } from "react";
 
 interface IconoProps {
-  color?: string; // Color opcional
-  IconComponent: IconType; // Componente de ícono de react-icons
+  color?: string;
+  children: ReactNode;
 }
 
-export const Icono = ({ color = "inherit", IconComponent }: IconoProps) => {
-  return (
-    <span
-      className="inline-block"
-      style={{
-        color, 
-      }}
-    >
-      <IconComponent size={24} /> 
-    </span>
-  );
-};
+export function Icono({ color = "text-white", children }: IconoProps): JSX.Element {
+  return <span className={color}>{children}</span>;
+}
